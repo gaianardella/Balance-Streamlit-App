@@ -1,16 +1,20 @@
 class BudgetManager:
+    # set daily goal, expenses list and balance
     def __init__(self, budget):
         self.budget = budget
         self.expenses = []
         self.balance = budget
 
     def add_expense(self, amount, description):
-        if amount > self.balance:
-            print("Expense exceeds available balance. Cannot add expense.")
-        else:
-            self.expenses.append((amount, description))
-            self.balance -= amount
-            print(f"Expense added: {description} (${amount}). New balance: ${self.balance}")
+        # if amount > self.balance:
+        #     print("Expense exceeds available balance. Cannot add expense.")
+        # else:
+        # self.expenses.append((amount, description))
+        self.expenses.append((amount, category))
+        self.balance -= amount
+        # print(f"Expense added: {description} (${amount}). New balance: ${self.balance}")
+        print(f"Expense added: {category} (${amount}). New balance: ${self.balance}")
+
 
     def print_balance(self):
         print(f"Current balance: ${self.balance}")
@@ -20,19 +24,29 @@ class BudgetManager:
             print("No expenses recorded.")
         else:
             print("Expenses:")
-            for amount, description in self.expenses:
-                print(f"- {description}: ${amount}")
+            # for amount, description in self.expenses:
+                # print(f"- {description}: ${amount}")
+            for amount, category in self.expenses:
+                print(f"- {category}: ${amount}")
+
 
 def main():
-    budget_amount = float(input("Enter your budget for the month: "))
+    budget_amount = float(input("Enter your daily budget: "))
     budget_manager = BudgetManager(budget_amount)
 
     while True:
-        print("\nOptions:")
+        # print("\nOptions:")
+        #st.text
         print("1. Add an expense")
+        # add input field
+        # add st.button (Add)
+        #st.text
         print("2. View current balance")
+        # add st.button (status)
+        #st.text
         print("3. View expenses")
-        print("4. Exit")
+        # view table with expenses, filter, view graphs
+        # print("4. Exit")
         choice = input("Enter your choice (1/2/3/4): ")
 
         if choice == "1":
