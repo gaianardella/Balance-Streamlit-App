@@ -35,8 +35,7 @@ def main():
     budget_manager = BudgetManager(dailyBudget)
     
     st.text("1. Aggiungi spesa")
-    # expense = st.number_input('Inserisci spesa')
-    expense = st.number_input("Inserisci spesa", value=None, placeholder="Inserisci spesa")
+    expense = st.number_input('Inserisci spesa')
     st.write('Il valore corrente è ', expense)
 
     option = st.selectbox(
