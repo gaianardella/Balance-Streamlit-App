@@ -34,13 +34,13 @@ def main():
     dailyBudget = 13.30
     budget_manager = BudgetManager(dailyBudget)
 #         # print("\nOptions:")
-        st.text("1. Aggiungi spesa")
-        expense = st.number_input('Inserisci spesa')
+    st.text("1. Aggiungi spesa")
+    expense = st.number_input('Inserisci spesa')
 #         # add st.button (Add)
-        st.text("2. Visualizza stato")
-        st.write('Stato attuale: ', dailyBudget)
+    st.text("2. Visualizza stato")
+    st.write('Stato attuale: ', dailyBudget)
 #         # add st.button (status)
-        st.text("3. Visualizza spese")
+    st.text("3. Visualizza spese")
 #         # view table with expenses, filter, view graphs
          # df = pd.DataFrame(1, columns=("spesa", "categoria", "descrizione"))
          # st.table(df)
@@ -63,7 +63,7 @@ def main():
 if __name__ == '__main__':
     st.title("Budget :sun_with_face: :money_with_wings:")
     main()
-    dailyBudget = 13.30
-monthlyBudget = 400
-expense = st.number_input('Inserisci spesa')
-dailyBudget -= expense  
+#     dailyBudget = 13.30
+# monthlyBudget = 400
+# expense = st.number_input('Inserisci spesa')
+# dailyBudget -= expense  
