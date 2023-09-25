@@ -18,15 +18,13 @@ class BudgetManager:
     def print_balance(self):
         print(f"Current balance: ${self.balance}")
 
-    # def print_expenses(self):
-    #     if not self.expenses:
-    #         print("No expenses recorded.")
-    #     else:
-    #         print("Expenses:")
-    #         # for amount, description in self.expenses:
-    #             # print(f"- {description}: ${amount}")
-    #         for amount, category in self.expenses:
-    #             print(f"- {category}: ${amount}")
+    def print_expenses(self):
+        if not self.expenses:
+            print("No expenses recorded.")
+        else:
+            print("Expenses:")
+            for amount, category in self.expenses:
+                print(f"- {category}: ${amount}")
 
 
 def main():
@@ -55,6 +53,8 @@ def main():
     # st.write('Stato attuale: ', current_balance)
     
     st.text("3. Visualizza spese")
+    spese = budget_manager.expenses
+    st.write(spese)
 #         # view table with expenses, filter, view graphs
          # df = pd.DataFrame(1, columns=("spesa", "categoria", "descrizione"))
          # st.table(df)
