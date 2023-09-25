@@ -9,7 +9,7 @@ class BudgetManager:
         self.expenses = []
         self.balance = dailyBudget
 
-    def add_expense(self, amount, description):
+    def add_expense(self, amount, category):
         self.expenses.append((amount, category))
         self.balance -= amount
         print(f"Expense added: {category} (${amount}). New balance: ${self.balance}")
