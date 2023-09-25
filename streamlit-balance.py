@@ -52,8 +52,11 @@ def main():
     # Get the expenses from the BudgetManager instance
     expenses = budget_manager.get_expenses()
 
-    # Store the expenses in st.session_state
-    st.session_state['expenses'] = expenses
+    if 'expenses' not in st.session_state:
+        # Store the expenses in st.session_state
+        st.session_state['expenses'] = expenses
+    else:
+        st.session_state['expenses'] += expenses
 
     st.write(session_state['expenses'])
         
