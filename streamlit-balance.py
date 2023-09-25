@@ -55,8 +55,10 @@ def main():
     if 'expenses' not in st.session_state:
         # Store the expenses in st.session_state
         st.session_state['expenses'] = expenses
+        st.write(st.session_state['expenses'])
     else:
         st.session_state['expenses'] += expenses
+        st.write(st.session_state['expenses'])
 
     # st.write(session_state['expenses'])
         
