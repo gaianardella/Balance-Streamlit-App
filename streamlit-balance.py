@@ -33,13 +33,24 @@ def main():
     # budget_amount = float(input("Enter your daily budget: "))
     dailyBudget = 13.30
     budget_manager = BudgetManager(dailyBudget)
-#         # print("\nOptions:")
+    
     st.text("1. Aggiungi spesa")
     expense = st.number_input('Inserisci spesa')
-#         # add st.button (Add)
+
+    option = st.selectbox(
+        "Seleziona categoria",
+        ("Spesa", "Trasporti", "Ristoranti", "Shopping"),
+        index=None,
+        placeholder="Seleziona una categoria"
+    )
+    st.write('Hai selezionato: ', option)
+    
+    budget_manager.add_expense(expense, option)
+    
     st.text("2. Visualizza stato")
     st.write('Stato attuale: ', dailyBudget)
-#         # add st.button (status)
+    current_balance = budget_manager.balance
+    
     st.text("3. Visualizza spese")
 #         # view table with expenses, filter, view graphs
          # df = pd.DataFrame(1, columns=("spesa", "categoria", "descrizione"))
