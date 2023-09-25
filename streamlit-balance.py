@@ -55,14 +55,12 @@ def main():
     if 'expenses' not in st.session_state:
         # Store the expenses in st.session_state
         st.session_state['expenses'] = expenses
-        # st.write(st.session_state['expenses'])
     else:
         st.session_state['expenses'] += expenses
-        # st.write(st.session_state['expenses'])
 
-    # st.write(session_state['expenses'])
-        
-    # st.write('Il valore corrente è ', expense)
+    expenses_sum = sum(session_state['expenses'])
+    bilancio = dailyBalance - expenses_sum
+    st.write('Il valore corrente è ', bilancio)
     
     # st.text("2. Visualizza stato")
     # current_balance = budget_manager.balance
