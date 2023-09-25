@@ -66,13 +66,12 @@ class BudgetManager:
 if __name__ == '__main__':
   st.title("Budget :sun_with_face: :money_with_wings:")
 
-  df = pd.DataFrame(np.random.randn(10, 5), columns=("col %d" % i for i in range(5)))
+  df = pd.DataFrame(np.random.randn(10, 5), columns=("spesa", "categoria", "descrizione")
   st.table(df)
 
   
   dailyBudget = 13.30
   monthlyBudget = 400
-  st.title("Budget :sun_with_face: :money_with_wings:")
   expense = st.number_input('Inserisci spesa')
   dailyBudget -= expense  
   st.write('Stato attuale: ', dailyBudget)
