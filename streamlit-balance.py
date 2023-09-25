@@ -48,8 +48,8 @@ def main():
     budget_manager.add_expense(expense, option)
     
     st.text("2. Visualizza stato")
-    st.write('Stato attuale: ', dailyBudget)
     current_balance = budget_manager.balance
+    st.write('Stato attuale: ', current_balance)
     
     st.text("3. Visualizza spese")
 #         # view table with expenses, filter, view graphs
