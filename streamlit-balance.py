@@ -58,7 +58,7 @@ def main():
     else:
         st.session_state['expenses'] += expenses
 
-    st.write(session_state['expenses'])
+    # st.write(session_state['expenses'])
         
     # st.write('Il valore corrente è ', expense)
     
