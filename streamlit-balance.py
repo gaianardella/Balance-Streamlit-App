@@ -1,18 +1,16 @@
 import streamlit as st
-st.title("Budget :sun_with_face: :money_with_wings:")
+import pandas as pd
+import numpy as np
 
-# class BudgetManager:
-#     # set daily goal, expenses list and balance
-#     def __init__(self, budget):
-#         self.budget = budget
-#         self.expenses = []
-#         self.balance = budget
+class BudgetManager:
+    # set daily goal, expenses list and balance
+    def __init__(self, budget):
+        self.budget = budget
+        self.expenses = []
+        self.balance = budget
 
-#     def add_expense(self, amount, description):
-#         # if amount > self.balance:
-#         #     print("Expense exceeds available balance. Cannot add expense.")
-#         # else:
-#         # self.expenses.append((amount, description))
+    # def add_expense(self, amount, description):
+        # self.expenses.append((amount, description))
 #         self.expenses.append((amount, category))
 #         self.balance -= amount
 #         # print(f"Expense added: {description} (${amount}). New balance: ${self.balance}")
@@ -65,5 +63,16 @@ st.title("Budget :sun_with_face: :money_with_wings:")
 #         else:
 #             print("Invalid choice. Please choose a valid option.")
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == '__main__':
+  st.title("Budget :sun_with_face: :money_with_wings:")
+
+  df = pd.DataFrame(np.random.randn(10, 5), columns=("col %d" % i for i in range(5)))
+  st.table(df)
+
+  
+  dailyBudget = 13.30
+  monthlyBudget = 400
+  st.title("Budget :sun_with_face: :money_with_wings:")
+  expense = st.number_input('Inserisci spesa')
+  dailyBudget -= expense  
+  st.write('Stato attuale: ', dailyBudget)
