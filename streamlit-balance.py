@@ -58,8 +58,9 @@ def main():
     else:
         st.session_state['expenses'] += expenses
 
-    expenses_sum = sum(st.session_state['expenses'])
-    st.write(expenses_sum)
+    st.write(st.session_state['expenses'])
+    # expenses_sum = sum(st.session_state['expenses'])
+    # st.write(expenses_sum)
     # bilancio = dailyBalance - expenses_sum
     st.write('Il valore corrente è ', bilancio)
     
