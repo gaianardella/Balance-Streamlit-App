@@ -66,7 +66,7 @@ class BudgetManager:
 if __name__ == '__main__':
   st.title("Budget :sun_with_face: :money_with_wings:")
 
-  df = pd.DataFrame(np.random.randn(10, 5), columns=("spesa", "categoria", "descrizione"))
+  df = pd.DataFrame(1, columns=("spesa", "categoria", "descrizione"))
   st.table(df)
 
   
