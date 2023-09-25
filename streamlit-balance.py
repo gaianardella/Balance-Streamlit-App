@@ -14,6 +14,8 @@ class BudgetManager:
         self.balance -= amount
         # print(f"Expense added: {category} (${amount}). New balance: ${self.balance}")
 
+    def get_expenses(self):
+        return self.expenses
 
     def print_balance(self):
         print(f"Current balance: ${self.balance}")
@@ -28,14 +30,14 @@ class BudgetManager:
 
 
 def main():
+           
     # budget_amount = float(input("Enter your daily budget: "))
     dailyBudget = 13.30
     budget_manager = BudgetManager(dailyBudget)
     
     st.text("1. Aggiungi spesa")
     expense = st.number_input('Inserisci spesa')
-    st.write('Il valore corrente è ', expense)
-
+    
     option = st.selectbox(
         "Seleziona categoria",
         ("Spesa", "Trasporti", "Ristoranti", "Shopping"),
@@ -46,15 +48,23 @@ def main():
 
     if st.button('Aggiungi spesa'):
         budget_manager.add_expense(expense, option)
+
+    # Get the expenses from the BudgetManager instance
+    expenses = budget_manager.get_expenses()
+
+    # Store the expenses in st.session_state
+    st.session_state['expenses'] = expenses
+
+    st.write(session_state['expenses'])
+        
+    # st.write('Il valore corrente è ', expense)
     
-    st.text("2. Visualizza stato")
-    current_balance = budget_manager.balance
-    st.write(current_balance)
-    # st.write('Stato attuale: ', current_balance)
+    # st.text("2. Visualizza stato")
+    # current_balance = budget_manager.balance
+    # st.write(current_balance)
+    # # st.write('Stato attuale: ', current_balance)
     
-    st.text("3. Visualizza spese")
-    spese = budget_manager.expenses
-    st.write(spese)
+    # st.text("3. Visualizza spese")
 #         # view table with expenses, filter, view graphs
          # df = pd.DataFrame(1, columns=("spesa", "categoria", "descrizione"))
          # st.table(df)
