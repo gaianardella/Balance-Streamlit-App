@@ -62,7 +62,7 @@ def main():
     st.write(st.session_state['expenses'])
     for el in st.session_state['expenses']:
         expenses_sum += el[0]
-    bilancio = dailyBalance - expenses_sum
+    bilancio = dailyBudget - expenses_sum
     st.write('Il valore corrente è ', bilancio)
     
     # st.text("2. Visualizza stato")
