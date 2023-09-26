@@ -11,14 +11,20 @@ class BudgetManager:
 
     def add_expense(self, amount, category):
         self.expenses.append((amount, category))
-        self.balance -= amount
+        # self.balance -= amount
         # print(f"Expense added: {category} (${amount}). New balance: ${self.balance}")
 
     def get_expenses(self):
         return self.expenses
 
-    def print_balance(self):
-        print(f"Current balance: ${self.balance}")
+    def print_balance(self, dailyBudget):
+    #     print(f"Current balance: ${self.balance}")
+        expenses_sum=0
+        for el in st.session_state['expenses']:
+            expenses_sum += el[0]
+        self.balance = dailyBudget - expenses_sum
+        st.write('Stato attuale: ', self.balance)
+    
 
     def print_expenses(self):
         if not self.expenses:
@@ -37,6 +43,7 @@ def main():
     
     st.text("1. Aggiungi spesa")
     expense = st.number_input('Inserisci spesa')
+    st.write('Il valore corrente è ', expense)
     
     option = st.selectbox(
         "Seleziona categoria",
@@ -58,17 +65,9 @@ def main():
     else:
         st.session_state['expenses'] += expenses
 
-    expenses_sum=0
-    st.write(st.session_state['expenses'])
-    for el in st.session_state['expenses']:
-        expenses_sum += el[0]
-    bilancio = dailyBudget - expenses_sum
-    st.write('Il valore corrente è ', bilancio)
-    
-    # st.text("2. Visualizza stato")
-    # current_balance = budget_manager.balance
+    st.text("2. Visualizza stato")
+    current_balance = budget_manager.balance
     # st.write(current_balance)
-    # # st.write('Stato attuale: ', current_balance)
     
     # st.text("3. Visualizza spese")
 #         # view table with expenses, filter, view graphs
