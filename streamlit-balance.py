@@ -58,11 +58,16 @@ def main():
     else:
         st.session_state['expenses'] += expenses
 
+    expenses_count=0
     st.write(st.session_state['expenses'])
+    for el in st.session_state['expenses']:
+        expenses_count += el[0]
+    st.write(expenses_count)
+        
     # expenses_sum = sum(st.session_state['expenses'])
     # st.write(expenses_sum)
     # bilancio = dailyBalance - expenses_sum
-    st.write('Il valore corrente è ', bilancio)
+    # st.write('Il valore corrente è ', bilancio)
     
     # st.text("2. Visualizza stato")
     # current_balance = budget_manager.balance
