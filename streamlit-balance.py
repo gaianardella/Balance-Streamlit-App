@@ -23,7 +23,6 @@ class BudgetManager:
         for el in st.session_state['expenses']:
             expenses_sum += el[0]
         self.balance = dailyBudget - expenses_sum
-        st.write('Stato attuale: ', self.balance)
     
 
     def print_expenses(self):
@@ -67,6 +66,7 @@ def main():
 
     st.text("2. Visualizza stato")
     current_balance = budget_manager.balance
+    st.write('Stato attuale: ', current_balance)
     # st.write(current_balance)
     
     # st.text("3. Visualizza spese")
