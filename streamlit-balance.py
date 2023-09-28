@@ -89,8 +89,8 @@ def main():
     st.write(date_string)
     # Convert the date string into a datetime object
     date_format = "%d%m%y"
-    # date_datetime = datetime.strptime(date_string, date_format)
-    # st.write(date_datetime)
+    date_datetime = datetime.strptime(date_string, date_format)
+    st.write(date_datetime)
     
     if st.button('Aggiungi spesa'):
         # budget_manager.add_expense(expense, option)
