@@ -162,7 +162,7 @@ def main():
         st.write(date)
         st.write(expenses)
         # Calculate the sum of expenses for the current date
-        sum_of_expenses = sum(expense[0] for expense in expenses)
+        # sum_of_expenses = sum(expense[0] for expense in expenses)
         
     #     # Calculate the cumulative balance by subtracting expenses from 10 euros
     #     cumulative_balance += (dailyBudget - sum_of_expenses)
