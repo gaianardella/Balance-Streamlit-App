@@ -108,13 +108,13 @@ def main():
                 # Sort the keys of the dictionary
                 sorted_keys = sorted(st.session_state.keys())
                 
-                # Print the sorted keys
-                for key in sorted_keys:
-                    st.write(key)
+                # # Print the sorted keys
+                # for key in sorted_keys:
+                #     st.write(key)
                 # Example: The starting and ending dates
                 # last_key = list(st.session_state.keys())[-1].split('/')
                 last_key = sorted_keys[-1].split('/')
-                st.write("lk: "+str(last_key))
+                # st.write("last_key: "+str(last_key))
                     
                 start_date = datetime(int(last_key[2]), int(last_key[1]), int(last_key[0]))
                 start_date_string = f"{int(last_key[0]):02d}/{int(last_key[1]):02d}/{int(last_key[2])}"
@@ -124,16 +124,15 @@ def main():
                 date_range = [start_date + timedelta(days=i) for i in range((end_date - start_date).days + 1)]
                 # Convert the dates to strings in 'dd/mm/yyyy' format
                 date_strings = [date.strftime('%d/%m/%Y') for date in date_range]
-               
+
+                st.session_state[date] =[(expense, category)]
 
                 # Print the resulting date strings
                 for date_string in date_strings:
-                    if date_string not in st.session_state and date_string != date and date_string != start_date_string:
-                        st.write(date_string)
+                    if date_string not in st.session_state:
                         st.session_state[date_string] = [(0)]
-
-                st.session_state[date] =[(expense, category)]
-        st.write(st.session_state)
+                        
+        # st.write(st.session_state)
                 
                 # # Assuming you have st.session_state with the existing data
                 # # If not, you can initialize it as an empty dictionary: st.session_state = {}
@@ -152,26 +151,26 @@ def main():
     # current_balance = dailyBudget - expenses_sum
     # st.write('Stato attuale: ', current_balance)
 
-    # # Initialize a dictionary to store the cumulative balances for each day
-    # cumulative_balances = {}
+    # Initialize a dictionary to store the cumulative balances for each day
+    cumulative_balances = {}
     
-    # # Initialize a variable to track the cumulative balance
-    # cumulative_balance = 0
+    # Initialize a variable to track the cumulative balance
+    cumulative_balance = 0
     
-    # # Iterate through the keys (dates) in the session_state dictionary
-    # for date, expenses in st.session_state.items():
-    #     # Calculate the sum of expenses for the current date
-    #     sum_of_expenses = sum(expense[0] for expense in expenses)
+    # Iterate through the keys (dates) in the session_state dictionary
+    for date, expenses in st.session_state.items():
+        # Calculate the sum of expenses for the current date
+        sum_of_expenses = sum(expense[0] for expense in expenses)
         
-    #     # Calculate the cumulative balance by subtracting expenses from 10 euros
-    #     cumulative_balance += (dailyBudget - sum_of_expenses)
+        # Calculate the cumulative balance by subtracting expenses from 10 euros
+        cumulative_balance += (dailyBudget - sum_of_expenses)
         
-    #     # Store the cumulative balance for the current date in the dictionary
-    #     cumulative_balances[date] = cumulative_balance
+        # Store the cumulative balance for the current date in the dictionary
+        cumulative_balances[date] = cumulative_balance
     
-    # # Print the dictionary of cumulative balances
-    # for date, balance in cumulative_balances.items():
-        # st.write(f"Date: {date}, Cumulative Balance: {balance} euros")
+    # Print the dictionary of cumulative balances
+    for date, balance in cumulative_balances.items():
+        st.write(f"Date: {date}, Cumulative Balance: {balance} euros")
         
     ##############################################################
     
