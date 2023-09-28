@@ -120,7 +120,7 @@ def main():
 
                 # Print the resulting date strings
                 for date_string in date_strings:
-                    str.write(date_string)
+                    st.write(date_string)
                 
                 # # Assuming you have st.session_state with the existing data
                 # # If not, you can initialize it as an empty dictionary: st.session_state = {}
