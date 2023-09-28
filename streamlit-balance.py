@@ -83,7 +83,7 @@ def main():
         index=None,
         placeholder="Seleziona una categoria"
     )
-    if day or month or year not None:
+    if day is not None and month is not None and year is not None:
         date_string = f"{day:02d}/{month:02d}/{year}"
         st.write('Hai selezionato: {}'.format(date_string))
     # date_string = f"{day:02d}{month:02d}{year}"
