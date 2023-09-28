@@ -104,6 +104,25 @@ def main():
     # current_balance = budget_manager.balance
     # current_balance = dailyBudget - expenses_sum
     # st.write('Stato attuale: ', current_balance)
+
+    # Initialize an empty list to store the single balances
+    single_balances = []
+    
+    # Iterate through the keys (dates) in the session_state dictionary
+    st.write(st.session_state.items())
+    # for date, expenses in session_state.items():
+    #     # Calculate the sum of expenses for the current date
+    #     sum_of_expenses = sum(expense[0] for expense in expenses)
+        
+    #     # Calculate the single balance by subtracting expenses from 10 euros
+    #     single_balance = 10 - sum_of_expenses
+        
+    #     # Append the single balance to the list
+    #     single_balances.append((date, single_balance))
+    
+    # # Print the list of single balances
+    # for date, balance in single_balances:
+    #     st.write(f"Date: {date}, Single Balance: {balance} euros")
     
     ##############################################################
     
