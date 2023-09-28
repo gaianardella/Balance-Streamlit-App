@@ -23,6 +23,7 @@ class BudgetManager:
         for el in self.expenses:
             expenses_sum += el[0]
         self.balance = dailyBudget - expenses_sum
+        return self.balance
     
 
     def print_expenses(self):
