@@ -107,9 +107,10 @@ def main():
             else:
                 # Example: The starting and ending dates
                 last_key = list(st.session_state.keys())[-1].split('/')
-                start_date = datetime(last_key[2], last_key[0], last_key[1])
+                st.write(last_key)
+                # start_date = datetime(last_key[2], last_key[0], last_key[1])
                 end_date = datetime(year, day, month)
-                st.write(start_date)
+                # st.write(start_date)
                 st.write(end_date)
     st.write(st.session_state)
     # Calculate the range of dates
