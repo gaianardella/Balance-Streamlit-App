@@ -105,24 +105,27 @@ def main():
     # current_balance = dailyBudget - expenses_sum
     # st.write('Stato attuale: ', current_balance)
 
-    # Initialize an empty list to store the single balances
-    single_balances = []
+    # Initialize a dictionary to store the cumulative balances for each day
+    cumulative_balances = {}
+    
+    # Initialize a variable to track the cumulative balance
+    cumulative_balance = 0
     
     # Iterate through the keys (dates) in the session_state dictionary
     for date, expenses in st.session_state.items():
         # Calculate the sum of expenses for the current date
         sum_of_expenses = sum(expense[0] for expense in expenses)
         
-        # Calculate the single balance by subtracting expenses from 10 euros
-        single_balance = dailyBudget - sum_of_expenses
+        # Calculate the cumulative balance by subtracting expenses from 10 euros
+        cumulative_balance += (dailyBudget - sum_of_expenses)
         
-        # Append the single balance to the list
-        single_balances.append((date, single_balance))
+        # Store the cumulative balance for the current date in the dictionary
+        cumulative_balances[date] = cumulative_balance
     
-    # Print the list of single balances
-    for date, balance in single_balances:
-        st.write(f"Date: {date}, Single Balance: {balance} euros")
-    
+    # Print the dictionary of cumulative balances
+    for date, balance in cumulative_balances.items():
+        st.write(f"Date: {date}, Cumulative Balance: {balance} euros")
+        
     ##############################################################
     
     # st.text("3. Visualizza spese")
