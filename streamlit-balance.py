@@ -54,7 +54,7 @@ def main():
     expense = st.number_input('Inserisci spesa')
     st.write('Il valore corrente è ', expense)
     
-    option = st.selectbox(
+    category = st.selectbox(
         "Seleziona categoria",
         ("Spesa", "Trasporti", "Ristoranti", "Shopping"),
         index=None,
@@ -62,9 +62,31 @@ def main():
     )
     st.write('Hai selezionato: ', option)
 
+    day = st.selectbox(
+        "Seleziona giorno",
+        (for i in range(32)),
+        index=None,
+        placeholder="Seleziona una categoria"
+    )
+    
+    # month = st.selectbox(
+    #     "Seleziona categoria",
+    #     ("Spesa", "Trasporti", "Ristoranti", "Shopping"),
+    #     index=None,
+    #     placeholder="Seleziona una categoria"
+    # )
+
+    # year = st.selectbox(
+    #     "Seleziona categoria",
+    #     ("Spesa", "Trasporti", "Ristoranti", "Shopping"),
+    #     index=None,
+    #     placeholder="Seleziona una categoria"
+    # )
+    # st.write('Hai selezionato: ', option)
+
     if st.button('Aggiungi spesa'):
         # budget_manager.add_expense(expense, option)
-        st.session_state['expenses'].append((expense, option))
+        st.session_state['expenses'].append((expense, category))
         
     st.text("2. Visualizza stato")
     # current_balance = budget_manager.balance
