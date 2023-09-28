@@ -62,7 +62,6 @@ def main():
     )
     st.write('Hai selezionato: ', category)
 
-    days = list(range(1, 32))
     day = st.selectbox(
         "Seleziona giorno",
         (range(1, 32)),
@@ -70,21 +69,21 @@ def main():
         placeholder="Seleziona una categoria"
     )
     
-    # month = st.selectbox(
-    #     "Seleziona categoria",
-    #     ("Spesa", "Trasporti", "Ristoranti", "Shopping"),
-    #     index=None,
-    #     placeholder="Seleziona una categoria"
-    # )
+    month = st.selectbox(
+        "Seleziona categoria",
+        (range(1, 12)),
+        index=None,
+        placeholder="Seleziona una categoria"
+    )
 
-    # year = st.selectbox(
-    #     "Seleziona categoria",
-    #     ("Spesa", "Trasporti", "Ristoranti", "Shopping"),
-    #     index=None,
-    #     placeholder="Seleziona una categoria"
-    # )
-    # st.write('Hai selezionato: ', option)
-
+    year = st.selectbox(
+        "Seleziona categoria",
+        (2023, 2024),
+        index=None,
+        placeholder="Seleziona una categoria"
+    )
+    st.write('Hai selezionato: {0}/{1}/{2}'.format(day, month, year))
+    
     if st.button('Aggiungi spesa'):
         # budget_manager.add_expense(expense, option)
         st.session_state['expenses'].append((expense, category))
