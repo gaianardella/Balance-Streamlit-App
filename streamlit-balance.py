@@ -88,9 +88,14 @@ def main():
     date_string = f"{day:02d}{month:02d}{year}"
     st.write(date_string)
     # Convert the date string into a datetime object
-    date_format = "%d%m%Y"
-    date_datetime = datetime.strptime(date_string, date_format)
-    st.write(date_datetime)
+    # date_format = "%d%m%Y"
+    # date_datetime = datetime.strptime(date_string, date_format)
+    # st.write(date_datetime)
+    # Convert the date string into a date object
+    date_date = date(int(year), int(month), int(day))
+
+    st.write(date_date)
+    st.write(type(date_date))
     
     if st.button('Aggiungi spesa'):
         # budget_manager.add_expense(expense, option)
