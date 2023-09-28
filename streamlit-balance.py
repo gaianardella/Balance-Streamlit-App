@@ -159,20 +159,20 @@ def main():
     
     # Iterate through the keys (dates) in the session_state dictionary
     for date, expenses in st.session_state.items():
-        st.write(date)
-        st.write(expenses)
+        # st.write(date)
+        # st.write(expenses)
         # Calculate the sum of expenses for the current date
-        # sum_of_expenses = sum(expense[0] for expense in expenses)
+        sum_of_expenses = sum(expense[0] for expense in expenses)
         
-    #     # Calculate the cumulative balance by subtracting expenses from 10 euros
-    #     cumulative_balance += (dailyBudget - sum_of_expenses)
+        # Calculate the cumulative balance by subtracting expenses from 10 euros
+        cumulative_balance += (dailyBudget - sum_of_expenses)
         
-    #     # Store the cumulative balance for the current date in the dictionary
-    #     cumulative_balances[date] = cumulative_balance
+        # Store the cumulative balance for the current date in the dictionary
+        cumulative_balances[date] = cumulative_balance
     
-    # # Print the dictionary of cumulative balances
-    # for date, balance in cumulative_balances.items():
-    #     st.write(f"Date: {date}, Cumulative Balance: {balance} euros")
+    # Print the dictionary of cumulative balances
+    for date, balance in cumulative_balances.items():
+        st.write(f"Date: {date}, Cumulative Balance: {balance} euros")
         
     ##############################################################
     
