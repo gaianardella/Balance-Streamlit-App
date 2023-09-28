@@ -88,7 +88,7 @@ def main():
     date_string = f"{day:02d}{month:02d}{year}"
     st.write(date_string)
     # Convert the date string into a datetime object
-    date_format = "%d%m%y"
+    date_format = "%d%m%y%H:%M"
     date_datetime = datetime.strptime(date_string, date_format)
     st.write(date_datetime)
     
