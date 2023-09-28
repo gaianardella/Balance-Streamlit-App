@@ -2,48 +2,48 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-class BudgetManager:
-    # set daily goal, expenses list and balance
-    def __init__(self, dailyBudget):
-        self.budget = dailyBudget
-        self.expenses = []
-        self.balance = dailyBudget
+# class BudgetManager:
+#     # set daily goal, expenses list and balance
+#     def __init__(self, dailyBudget):
+#         self.budget = dailyBudget
+#         self.expenses = []
+#         self.balance = dailyBudget
 
-    def add_expense(self, amount, category):
-        self.expenses.append((amount, category))
-        # self.balance -= amount
-        # print(f"Expense added: {category} (${amount}). New balance: ${self.balance}")
+#     def add_expense(self, amount, category):
+#         self.expenses.append((amount, category))
+#         # self.balance -= amount
+#         # print(f"Expense added: {category} (${amount}). New balance: ${self.balance}")
 
-    def get_expenses(self):
-        return self.expenses
+#     def get_expenses(self):
+#         return self.expenses
 
-    def print_balance(self, dailyBudget):
-    #     print(f"Current balance: ${self.balance}")
-        expenses_sum=0
-        for el in self.expenses:
-            expenses_sum += el[0]
-        self.balance = dailyBudget - expenses_sum
-        return self.balance
+#     def print_balance(self, dailyBudget):
+#     #     print(f"Current balance: ${self.balance}")
+#         expenses_sum=0
+#         for el in self.expenses:
+#             expenses_sum += el[0]
+#         self.balance = dailyBudget - expenses_sum
+#         return self.balance
     
 
-    def print_expenses(self):
-        if not self.expenses:
-            print("No expenses recorded.")
-        else:
-            print("Expenses:")
-            for amount, category in self.expenses:
-                print(f"- {category}: ${amount}")
+#     def print_expenses(self):
+#         if not self.expenses:
+#             print("No expenses recorded.")
+#         else:
+#             print("Expenses:")
+#             for amount, category in self.expenses:
+#                 print(f"- {category}: ${amount}")
 
 
 def main():
            
     # budget_amount = float(input("Enter your daily budget: "))
     dailyBudget = 13.30
-    budget_manager = BudgetManager(dailyBudget)
-
+    # budget_manager = BudgetManager(dailyBudget)
     # Get the expenses from the BudgetManager instance
-    expenses = budget_manager.get_expenses()
+    # expenses = budget_manager.get_expenses()
 
+    expenses = []
     if 'expenses' not in st.session_state:
         # Store the expenses in st.session_state
         st.session_state['expenses'] = expenses
@@ -63,12 +63,13 @@ def main():
     st.write('Hai selezionato: ', option)
 
     if st.button('Aggiungi spesa'):
-        budget_manager.add_expense(expense, option)
+        # budget_manager.add_expense(expense, option)
+        print(st.session_state['expenses'])
 
 
-    st.text("2. Visualizza stato")
-    current_balance = budget_manager.balance
-    st.write('Stato attuale: ', current_balance)
+    # st.text("2. Visualizza stato")
+    # current_balance = budget_manager.balance
+    # st.write('Stato attuale: ', current_balance)
     ##############################################################
     
     # st.text("3. Visualizza spese")
