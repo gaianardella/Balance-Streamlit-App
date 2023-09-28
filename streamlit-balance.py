@@ -83,8 +83,9 @@ def main():
         index=None,
         placeholder="Seleziona una categoria"
     )
-    date_string = f"{day:02d}/{month:02d}/{year}"
-    st.write('Hai selezionato: {}'.format(date_string))
+    if day or month or year not None:
+        date_string = f"{day:02d}/{month:02d}/{year}"
+        st.write('Hai selezionato: {}'.format(date_string))
     # date_string = f"{day:02d}{month:02d}{year}"
     # # Convert the date string into a datetime object
     # date_format = "%d%m%Y"
