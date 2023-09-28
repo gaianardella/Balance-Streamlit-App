@@ -111,7 +111,6 @@ def main():
                 start_date = datetime(int(last_key[2]), int(last_key[0]), int(last_key[1]))
                 end_date = datetime(year, day, month)
                 
-    st.write(st.session_state)
                 # Calculate the range of dates
                 date_range = [start_date + timedelta(days=i) for i in range((end_date - start_date).days + 1)]
                 st.write(date_range)
