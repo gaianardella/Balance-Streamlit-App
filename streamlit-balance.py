@@ -102,10 +102,6 @@ def main():
         
     st.text("2. Visualizza stato")
     # current_balance = budget_manager.balance
-    expenses_sum=0
-    saldo=0
-    for el in st.session_state: 
-        expenses_sum += el[0]
     # current_balance = dailyBudget - expenses_sum
     # st.write('Stato attuale: ', current_balance)
     
