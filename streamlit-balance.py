@@ -67,21 +67,21 @@ def main():
         "Seleziona giorno",
         (range(1, 32)),
         index=None,
-        placeholder="Seleziona una categoria"
+        placeholder="Seleziona giorno"
     )
     
     month = st.selectbox(
-        "Seleziona categoria",
+        "Seleziona mese",
         (range(1, 12)),
         index=None,
-        placeholder="Seleziona una categoria"
+        placeholder="Seleziona mese"
     )
 
     year = st.selectbox(
-        "Seleziona categoria",
+        "Seleziona anno",
         (2023, 2024),
         index=None,
-        placeholder="Seleziona una categoria"
+        placeholder="Seleziona anno"
     )
     if day is not None and month is not None and year is not None:
         date_string = f"{day:02d}/{month:02d}/{year}"
@@ -108,8 +108,10 @@ def main():
                 # Example: The starting and ending dates
                 last_key = list(st.session_state.keys())[-1].split('/')
                 st.write(last_key)
-                start_date = datetime(int(last_key[2]), int(last_key[0]), int(last_key[1]))
-                end_date = datetime(year, day, month)
+                # start_date = datetime(int(last_key[2]), int(last_key[0]), int(last_key[1]))
+                # end_date = datetime(year, day, month)
+                start_date = datetime(int(last_key[2]), int(last_key[1]), int(last_key[0]))
+                end_date = datetime(year, month, day)
                 
                 # Calculate the range of dates
                 date_range = [start_date + timedelta(days=i) for i in range((end_date - start_date).days + 1)]
