@@ -105,7 +105,6 @@ def main():
             if date in st.session_state:
                 st.session_state[date].append((expense, category))
             else:
-                st.write("date: " + date)
                 # Example: The starting and ending dates
                 last_key = list(st.session_state.keys())[-1].split('/')
                 st.write(last_key)
@@ -119,7 +118,7 @@ def main():
                 # Convert the dates to strings in 'dd/mm/yyyy' format
                 date_strings = [date.strftime('%d/%m/%Y') for date in date_range]
 
-                st.session_state[date].append((expense, category))
+                st.session_state[date] =[(expense, category)]
                 
 
                 # Print the resulting date strings
