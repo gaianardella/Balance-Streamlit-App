@@ -64,7 +64,7 @@ def main():
 
     if st.button('Aggiungi spesa'):
         # budget_manager.add_expense(expense, option)
-        print(st.session_state['expenses'])
+        st.write(st.session_state['expenses'])
 
 
     # st.text("2. Visualizza stato")
