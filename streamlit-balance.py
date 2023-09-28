@@ -110,23 +110,23 @@ def main():
                 st.write(last_key)
                 start_date = datetime(int(last_key[2]), int(last_key[0]), int(last_key[1]))
                 end_date = datetime(year, day, month)
-                st.write(start_date)
-                st.write(end_date)
+                
     st.write(st.session_state)
-    # Calculate the range of dates
-    # date_range = [start_date + timedelta(days=i) for i in range((end_date - start_date).days + 1)]
-    
-    # # Assuming you have st.session_state with the existing data
-    # # If not, you can initialize it as an empty dictionary: st.session_state = {}
-    
-    # # Check and add missing dates to st.session_state
-    # for date in date_range:
-    #     date_string = date.strftime('%d/%m/%Y')
-    #     if date_string not in st.session_state:
-    #         st.session_state[date_string] = [(0)]
-    
-    # # Print the updated st.session_state
-    # st.write(st.session_state)
+                # Calculate the range of dates
+                date_range = [start_date + timedelta(days=i) for i in range((end_date - start_date).days + 1)]
+                st.write(date_range)
+                
+                # # Assuming you have st.session_state with the existing data
+                # # If not, you can initialize it as an empty dictionary: st.session_state = {}
+                
+                # # Check and add missing dates to st.session_state
+                # for date in date_range:
+                #     date_string = date.strftime('%d/%m/%Y')
+                #     if date_string not in st.session_state:
+                #         st.session_state[date_string] = [(0)]
+                
+                # # Print the updated st.session_state
+                # st.write(st.session_state)
 
     st.text("2. Visualizza stato")
     # current_balance = budget_manager.balance
