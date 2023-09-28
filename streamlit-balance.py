@@ -90,41 +90,62 @@ def main():
     # # Convert the date string into a datetime object
     # date_format = "%d%m%Y"
     # date_datetime = datetime.strptime(date_string, date_format)
+
     
     if st.button('Aggiungi spesa'):
-        if date_string not in st.session_state:
+        # if date_string not in st.session_state:
             # Store the expenses in st.session_state
-            st.session_state[date_string] = [(expense, category)]
-        else:
-            st.session_state[date_string].append((expense, category))
+            # st.session_state[date_string] = []
+        # else:
+        #     st.session_state[date_string].append((expense, category))
 
-    st.write(st.session_state)
-        
+        if st.session_state:
+        # Example: The starting and ending dates
+            last_key = list(st.session_state.keys())[-1].split('/')
+            start_date = datetime(last_key[2], last_key[0], last_key[1])
+            end_date = datetime(year, day, month)
+            st.write(start_date)
+            st.write(end_date)
+    # Calculate the range of dates
+    # date_range = [start_date + timedelta(days=i) for i in range((end_date - start_date).days + 1)]
+    
+    # # Assuming you have st.session_state with the existing data
+    # # If not, you can initialize it as an empty dictionary: st.session_state = {}
+    
+    # # Check and add missing dates to st.session_state
+    # for date in date_range:
+    #     date_string = date.strftime('%d/%m/%Y')
+    #     if date_string not in st.session_state:
+    #         st.session_state[date_string] = [(0)]
+    
+    # # Print the updated st.session_state
+    # st.write(st.session_state)
+
     st.text("2. Visualizza stato")
     # current_balance = budget_manager.balance
     # current_balance = dailyBudget - expenses_sum
     # st.write('Stato attuale: ', current_balance)
 
-    # Initialize a dictionary to store the cumulative balances for each day
-    cumulative_balances = {}
+    # # Initialize a dictionary to store the cumulative balances for each day
+    # cumulative_balances = {}
     
-    # Initialize a variable to track the cumulative balance
-    cumulative_balance = 0
+    # # Initialize a variable to track the cumulative balance
+    # cumulative_balance = 0
     
-    # Iterate through the keys (dates) in the session_state dictionary
-    for date, expenses in st.session_state.items():
-        # Calculate the sum of expenses for the current date
-        sum_of_expenses = sum(expense[0] for expense in expenses)
+    # # Iterate through the keys (dates) in the session_state dictionary
+    # for date, expenses in st.session_state.items():
+    #     # Calculate the sum of expenses for the current date
+    #     sum_of_expenses = sum(expense[0] for expense in expenses)
         
-        # Calculate the cumulative balance by subtracting expenses from 10 euros
-        cumulative_balance += (dailyBudget - sum_of_expenses)
+    #     # Calculate the cumulative balance by subtracting expenses from 10 euros
+    #     cumulative_balance += (dailyBudget - sum_of_expenses)
         
-        # Store the cumulative balance for the current date in the dictionary
-        cumulative_balances[date] = cumulative_balance
+    #     # Store the cumulative balance for the current date in the dictionary
+    #     cumulative_balances[date] = cumulative_balance
     
-    # Print the dictionary of cumulative balances
-    for date, balance in cumulative_balances.items():
-        st.write(f"Date: {date}, Cumulative Balance: {balance} euros")
+    # # Print the dictionary of cumulative balances
+    # for date, balance in cumulative_balances.items():
+        # st.write(f"Date: {date}, Cumulative Balance: {balance} euros")
         
     ##############################################################
     
