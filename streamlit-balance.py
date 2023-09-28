@@ -20,7 +20,7 @@ class BudgetManager:
     def print_balance(self, dailyBudget):
     #     print(f"Current balance: ${self.balance}")
         expenses_sum=0
-        for el in st.session_state['expenses']:
+        for el in self.expenses:
             expenses_sum += el[0]
         self.balance = dailyBudget - expenses_sum
     
@@ -39,6 +39,15 @@ def main():
     # budget_amount = float(input("Enter your daily budget: "))
     dailyBudget = 13.30
     budget_manager = BudgetManager(dailyBudget)
+
+    # Get the expenses from the BudgetManager instance
+    expenses = budget_manager.get_expenses()
+
+    if 'expenses' not in st.session_state:
+        # Store the expenses in st.session_state
+        st.session_state['expenses'] = expenses
+    else:
+        st.session_state['expenses'] += expenses
     
     st.text("1. Aggiungi spesa")
     expense = st.number_input('Inserisci spesa')
@@ -55,22 +64,16 @@ def main():
     if st.button('Aggiungi spesa'):
         budget_manager.add_expense(expense, option)
 
-    # Get the expenses from the BudgetManager instance
-    expenses = budget_manager.get_expenses()
-
-    if 'expenses' not in st.session_state:
-        # Store the expenses in st.session_state
-        st.session_state['expenses'] = expenses
-    else:
-        st.session_state['expenses'] += expenses
 
     st.text("2. Visualizza stato")
     current_balance = budget_manager.balance
     st.write('Stato attuale: ', current_balance)
     # st.write(current_balance)
     
-    # st.text("3. Visualizza spese")
-#         # view table with expenses, filter, view graphs
+    st.text("3. Visualizza spese")
+    storico = budget_manager.print_expenses()
+    st.write(storico)
+        # view table with expenses, filter, view graphs
          # df = pd.DataFrame(1, columns=("spesa", "categoria", "descrizione"))
          # st.table(df)
 #         # print("4. Exit")
