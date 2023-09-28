@@ -125,7 +125,7 @@ def main():
                 for date_string in date_strings:
                     if date_string not in st.session_state:
                         st.session_state[date_string] = [(0)]
-                st.write(st.session_state)
+        st.write(st.session_state)
                 
                 # # Assuming you have st.session_state with the existing data
                 # # If not, you can initialize it as an empty dictionary: st.session_state = {}
