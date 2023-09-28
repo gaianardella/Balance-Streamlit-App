@@ -62,9 +62,10 @@ def main():
     )
     st.write('Hai selezionato: ', option)
 
+    days = list(range(1, 32))
     day = st.selectbox(
         "Seleziona giorno",
-        (for i in range(32)),
+        (range(1, 32)),
         index=None,
         placeholder="Seleziona una categoria"
     )
