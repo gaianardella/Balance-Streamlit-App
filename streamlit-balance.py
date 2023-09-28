@@ -79,9 +79,9 @@ def main():
     date = str(day)+"-"+str(month)+"-"+str(year)
 
     expenses = []
-    if 'expenses' not in st.session_state:
+    if date not in st.session_state:
         # Store the expenses in st.session_state
-        st.session_state['expenses'] = {}
+        st.session_state['expenses'] = []
     # else:
     #     st.session_state['expenses'][date] = []
     
