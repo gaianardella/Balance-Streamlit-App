@@ -89,23 +89,21 @@ def main():
     # # Convert the date string into a datetime object
     # date_format = "%d%m%Y"
     # date_datetime = datetime.strptime(date_string, date_format)
-
-    expenses = []
-    if date_string not in st.session_state:
-        # Store the expenses in st.session_state
-        st.session_state[date_string] = expenses
     
     if st.button('Aggiungi spesa'):
-        # budget_manager.add_expense(expense, option)
-        st.session_state[date_string].append((expense, category))
+        if date_string not in st.session_state:
+            # Store the expenses in st.session_state
+            st.session_state[date_string] = [(expense, category)]
+        else:
+            st.session_state[date_string].append((expense, category))
 
     st.write(st.session_state)
         
     st.text("2. Visualizza stato")
     # current_balance = budget_manager.balance
     expenses_sum=0
-    st.write(st.session_state)
-    for el in st.session_state['expenses']:
+    saldo=0
+    for el in st.session_state: 
         expenses_sum += el[0]
     # current_balance = dailyBudget - expenses_sum
     # st.write('Stato attuale: ', current_balance)
