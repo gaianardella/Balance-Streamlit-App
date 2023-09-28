@@ -98,14 +98,19 @@ def main():
             # st.session_state[date_string] = []
         # else:
         #     st.session_state[date_string].append((expense, category))
-
-        if st.session_state:
-        # Example: The starting and ending dates
-            last_key = list(st.session_state.keys())[-1].split('/')
-            start_date = datetime(last_key[2], last_key[0], last_key[1])
-            end_date = datetime(year, day, month)
-            st.write(start_date)
-            st.write(end_date)
+        if len(st.session_state)==0:
+            st.session_state[date_string] = [(expense, category)]
+            
+        else:
+            if date_string in st.session_state:
+                st.session_state[date_string].append((expense, category))
+            else:
+                # Example: The starting and ending dates
+                last_key = list(st.session_state.keys())[-1].split('/')
+                start_date = datetime(last_key[2], last_key[0], last_key[1])
+                end_date = datetime(year, day, month)
+                st.write(start_date)
+                st.write(end_date)
     # Calculate the range of dates
     # date_range = [start_date + timedelta(days=i) for i in range((end_date - start_date).days + 1)]
     
