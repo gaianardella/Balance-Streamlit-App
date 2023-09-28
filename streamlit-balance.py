@@ -111,8 +111,9 @@ def main():
                 sorted_keys = sorted(st.session_state.keys())
                 
                 # Print the sorted keys
+                st.write("sorted")
                 for key in sorted_keys:
-                    print(key, my_dict[key])
+                    st.write(key)
                     
                 start_date = datetime(int(last_key[2]), int(last_key[1]), int(last_key[0]))
                 start_date_string = f"{int(last_key[0]):02d}/{int(last_key[1]):02d}/{int(last_key[2])}"
