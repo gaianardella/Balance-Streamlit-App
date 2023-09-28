@@ -44,12 +44,12 @@ def main():
     # Get the expenses from the BudgetManager instance
     # expenses = budget_manager.get_expenses()
 
-    expenses = []
-    if 'expenses' not in st.session_state:
-        # Store the expenses in st.session_state
-        st.session_state['expenses'] = expenses
-    else:
-        st.session_state['expenses'] += expenses
+    # expenses = []
+    # if 'expenses' not in st.session_state:
+    #     # Store the expenses in st.session_state
+    #     st.session_state['expenses'] = expenses
+    # else:
+    #     st.session_state['expenses'] += expenses
     
     st.text("1. Aggiungi spesa")
     expense = st.number_input('Inserisci spesa')
@@ -84,23 +84,29 @@ def main():
         placeholder="Seleziona una categoria"
     )
     date_string = f"{day:02d}/{month:02d}/{year}"
-    st.write('Hai selezionato: {0}/{1}/{2}'.format(day, month, year))
+    st.write('Hai selezionato: {}'.format(date_string))
     # date_string = f"{day:02d}{month:02d}{year}"
-    st.write(date_string)
     # # Convert the date string into a datetime object
     # date_format = "%d%m%Y"
     # date_datetime = datetime.strptime(date_string, date_format)
+
+    expenses = []
+    if date_string not in st.session_state:
+        # Store the expenses in st.session_state
+        st.session_state[date_string] = expenses
     
     if st.button('Aggiungi spesa'):
         # budget_manager.add_expense(expense, option)
-        st.session_state['expenses'].append((date_datetime, expense, category))
+        st.session_state[date_string].append((expense, category))
+
+    st.write(st.session_state)
         
     st.text("2. Visualizza stato")
     # current_balance = budget_manager.balance
     expenses_sum=0
     st.write(st.session_state)
-    # for el in st.session_state['expenses']:
-    #     expenses_sum += el[0]
+    for el in st.session_state['expenses']:
+        expenses_sum += el[0]
     # current_balance = dailyBudget - expenses_sum
     # st.write('Stato attuale: ', current_balance)
     
