@@ -42,6 +42,13 @@ def main():
     # budget_manager = BudgetManager(dailyBudget)
     # Get the expenses from the BudgetManager instance
     # expenses = budget_manager.get_expenses()
+
+     expenses = []
+    if 'expenses' not in st.session_state:
+        # Store the expenses in st.session_state
+        st.session_state['expenses'] = expenses
+    else:
+        st.session_state['expenses'] += expenses
     
     st.text("1. Aggiungi spesa")
     expense = st.number_input('Inserisci spesa')
@@ -77,17 +84,10 @@ def main():
     )
     st.write('Hai selezionato: {0}/{1}/{2}'.format(day, month, year))
     date = str(day)+"-"+str(month)+"-"+str(year)
-
-    expenses = []
-    if date not in st.session_state:
-        # Store the expenses in st.session_state
-        st.session_state['expenses'] = []
-    # else:
-    #     st.session_state['expenses'][date] = []
     
     if st.button('Aggiungi spesa'):
         # budget_manager.add_expense(expense, option)
-        st.session_state['expenses'][date].append((expense, category))
+        st.session_state['expenses'][date].append((date, expense, category))
         
     st.text("2. Visualizza stato")
     # current_balance = budget_manager.balance
