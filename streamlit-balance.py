@@ -65,12 +65,15 @@ def main():
     if st.button('Aggiungi spesa'):
         # budget_manager.add_expense(expense, option)
         st.session_state['expenses'].append((expense, option))
-        st.write(st.session_state['expenses'])
-
-
-    # st.text("2. Visualizza stato")
+        
+    st.text("2. Visualizza stato")
     # current_balance = budget_manager.balance
-    # st.write('Stato attuale: ', current_balance)
+    expenses_sum=0
+    for el in st.session_state['expenses']:
+        expenses_sum += el[0]
+    current_balance = dailyBudget - expenses_sum
+    st.write('Stato attuale: ', current_balance)
+    
     ##############################################################
     
     # st.text("3. Visualizza spese")
