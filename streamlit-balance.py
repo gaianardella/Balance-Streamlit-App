@@ -115,7 +115,12 @@ def main():
                 
                 # Calculate the range of dates
                 date_range = [start_date + timedelta(days=i) for i in range((end_date - start_date).days + 1)]
-                st.write(date_range)
+                # Convert the dates to strings in 'dd/mm/yyyy' format
+                date_strings = [date.strftime('%d/%m/%Y') for date in date_range]
+
+                # Print the resulting date strings
+                for date_string in date_strings:
+                    str.write(date_string)
                 
                 # # Assuming you have st.session_state with the existing data
                 # # If not, you can initialize it as an empty dictionary: st.session_state = {}
