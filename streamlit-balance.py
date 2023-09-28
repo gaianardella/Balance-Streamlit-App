@@ -108,23 +108,22 @@ def main():
                 # Example: The starting and ending dates
                 last_key = list(st.session_state.keys())[-1].split('/')
                 st.write(last_key)
-                # start_date = datetime(int(last_key[2]), int(last_key[0]), int(last_key[1]))
-                # end_date = datetime(year, day, month)
                 start_date = datetime(int(last_key[2]), int(last_key[1]), int(last_key[0]))
+                start_date_string = f"{int(last_key[0]):02d}/{int(last_key[1]):02d}/{int(last_key[2])}"
                 end_date = datetime(year, month, day)
                 
                 # Calculate the range of dates
                 date_range = [start_date + timedelta(days=i) for i in range((end_date - start_date).days + 1)]
                 # Convert the dates to strings in 'dd/mm/yyyy' format
                 date_strings = [date.strftime('%d/%m/%Y') for date in date_range]
-
-                st.session_state[date] =[(expense, category)]
-                
+               
 
                 # Print the resulting date strings
                 for date_string in date_strings:
-                    if date_string not in st.session_state:
+                    if date_string not in st.session_state and date_string != date and date_string != start_date_string:
                         st.session_state[date_string] = [(0)]
+
+                st.session_state[date] =[(expense, category)]
         st.write(st.session_state)
                 
                 # # Assuming you have st.session_state with the existing data
