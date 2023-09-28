@@ -90,7 +90,7 @@ def main():
     date_datetime = datetime.strptime(date_string, date_format)
     st.write(date_datetime)
 
-print(date_datetime)
+    print(date_datetime)
     
     if st.button('Aggiungi spesa'):
         # budget_manager.add_expense(expense, option)
