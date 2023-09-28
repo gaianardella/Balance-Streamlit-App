@@ -121,6 +121,7 @@ def main():
                 # Print the resulting date strings
                 for date_string in date_strings:
                     if date_string not in st.session_state and date_string != date and date_string != start_date_string:
+                        st.write(date_string)
                         st.session_state[date_string] = [(0)]
 
                 st.session_state[date] =[(expense, category)]
