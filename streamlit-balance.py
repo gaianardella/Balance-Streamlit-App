@@ -69,12 +69,11 @@ def main():
     st.text("2. Visualizza stato")
     current_balance = budget_manager.balance
     st.write('Stato attuale: ', current_balance)
-    st.write('wewe')
-    # st.write(current_balance)
+    ##############################################################
     
-    st.text("3. Visualizza spese")
-    storico = budget_manager.print_expenses()
-    st.write(storico)
+    # st.text("3. Visualizza spese")
+    # storico = budget_manager.print_expenses()
+    # st.write(storico)
         # view table with expenses, filter, view graphs
          # df = pd.DataFrame(1, columns=("spesa", "categoria", "descrizione"))
          # st.table(df)
