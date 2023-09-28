@@ -112,18 +112,16 @@ def main():
     for date, expenses in st.session_state.items():
         # Calculate the sum of expenses for the current date
         sum_of_expenses = sum(expense[0] for expense in expenses)
-        st.write('spesa')
-        st.write(sum_of_expenses)
         
-    #     # Calculate the single balance by subtracting expenses from 10 euros
-    #     single_balance = 10 - sum_of_expenses
+        # Calculate the single balance by subtracting expenses from 10 euros
+        single_balance = dailyBudget - sum_of_expenses
         
-    #     # Append the single balance to the list
-    #     single_balances.append((date, single_balance))
+        # Append the single balance to the list
+        single_balances.append((date, single_balance))
     
-    # # Print the list of single balances
-    # for date, balance in single_balances:
-    #     st.write(f"Date: {date}, Single Balance: {balance} euros")
+    # Print the list of single balances
+    for date, balance in single_balances:
+        st.write(f"Date: {date}, Single Balance: {balance} euros")
     
     ##############################################################
     
