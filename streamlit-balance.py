@@ -105,6 +105,7 @@ def main():
             if date in st.session_state:
                 st.session_state[date].append((expense, category))
             else:
+                st.write("date: " + date)
                 # Example: The starting and ending dates
                 last_key = list(st.session_state.keys())[-1].split('/')
                 st.write(last_key)
