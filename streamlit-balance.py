@@ -112,6 +112,7 @@ def main():
     for date, expenses in st.session_state.items():
         # Calculate the sum of expenses for the current date
         sum_of_expenses = sum(expense[0] for expense in expenses)
+        st.write('spesa')
         st.write(sum_of_expenses)
         
     #     # Calculate the single balance by subtracting expenses from 10 euros
