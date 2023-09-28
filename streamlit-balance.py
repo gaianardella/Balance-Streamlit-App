@@ -82,8 +82,8 @@ def main():
     if 'expenses' not in st.session_state:
         # Store the expenses in st.session_state
         st.session_state['expenses'] = {}
-    else:
-        st.session_state['expenses'][date] = []
+    # else:
+    #     st.session_state['expenses'][date] = []
     
     if st.button('Aggiungi spesa'):
         # budget_manager.add_expense(expense, option)
