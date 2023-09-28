@@ -130,7 +130,7 @@ def main():
                 # Print the resulting date strings
                 for date_string in date_strings:
                     if date_string not in st.session_state:
-                        st.session_state[date_string] = [(0)]
+                        st.session_state[date_string] = [[0]]
                         
         # st.write(st.session_state)
                 
