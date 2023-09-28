@@ -84,17 +84,14 @@ def main():
         placeholder="Seleziona una categoria"
     )
     st.write('Hai selezionato: {0}/{1}/{2}'.format(day, month, year))
-    date = str(day)+"-"+str(month)+"-"+str(year)
     date_string = f"{day:02d}{month:02d}{year}"
-    st.write(date_string)
     # Convert the date string into a datetime object
     date_format = "%d%m%Y"
     date_datetime = datetime.strptime(date_string, date_format)
-    st.write(date_datetime)
     
     if st.button('Aggiungi spesa'):
         # budget_manager.add_expense(expense, option)
-        st.session_state['expenses'].append((date, expense, category))
+        st.session_state['expenses'].append((date_datetime, expense, category))
         
     st.text("2. Visualizza stato")
     # current_balance = budget_manager.balance
