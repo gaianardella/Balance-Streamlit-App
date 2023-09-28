@@ -69,6 +69,7 @@ def main():
     st.text("2. Visualizza stato")
     current_balance = budget_manager.balance
     st.write('Stato attuale: ', current_balance)
+    st.write('wewe')
     # st.write(current_balance)
     
     st.text("3. Visualizza spese")
