@@ -84,8 +84,8 @@ def main():
         placeholder="Seleziona anno"
     )
     if day is not None and month is not None and year is not None:
-        date_string = f"{day:02d}/{month:02d}/{year}"
-        st.write('Hai selezionato: {}'.format(date_string))
+        date = f"{day:02d}/{month:02d}/{year}"
+        st.write('Hai selezionato: {}'.format(date))
     # date_string = f"{day:02d}{month:02d}{year}"
     # # Convert the date string into a datetime object
     # date_format = "%d%m%Y"
@@ -99,11 +99,11 @@ def main():
         # else:
         #     st.session_state[date_string].append((expense, category))
         if len(st.session_state)==0:
-            st.session_state[date_string] = [(expense, category)]
+            st.session_state[date] = [(expense, category)]
             
         else:
-            if date_string in st.session_state:
-                st.session_state[date_string].append((expense, category))
+            if date in st.session_state:
+                st.session_state[date].append((expense, category))
             else:
                 # Example: The starting and ending dates
                 last_key = list(st.session_state.keys())[-1].split('/')
@@ -117,6 +117,9 @@ def main():
                 date_range = [start_date + timedelta(days=i) for i in range((end_date - start_date).days + 1)]
                 # Convert the dates to strings in 'dd/mm/yyyy' format
                 date_strings = [date.strftime('%d/%m/%Y') for date in date_range]
+
+                st.session_state[date].append((expense, category))
+                
 
                 # Print the resulting date strings
                 for date_string in date_strings:
