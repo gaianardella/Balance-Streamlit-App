@@ -109,8 +109,9 @@ def main():
     single_balances = []
     
     # Iterate through the keys (dates) in the session_state dictionary
-    st.write(st.session_state.items())
-    # for date, expenses in session_state.items():
+    for date, expenses in at.session_state.items():
+        st.write(date)
+        st.write(expenses)
     #     # Calculate the sum of expenses for the current date
     #     sum_of_expenses = sum(expense[0] for expense in expenses)
         
