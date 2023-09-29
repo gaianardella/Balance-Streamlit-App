@@ -175,8 +175,11 @@ def main():
     today_date = datetime.now().date()
     # Format the date as "dd/mm/yyyy"
     formatted_date = today_date.strftime('%d/%m/%Y')
-    # Print the formatted date
-    st.write(type(formatted_date))
+    if formatted_date in st.session_state:
+        st.write(f"Date: {formatted_date}, Cumulative Balance: {cumulative_balances[formatted_date]} euros")
+    else:
+        st.write(f"Date: {formatted_date}, Cumulative Balance: {cumulative_balances[formatted_date] + dailyBudget} euros")
+    
     # Sort the keys of the dictionary
     sorted_keys = sorted(cumulative_balances.keys())
     st.write(f"Date: {sorted_keys[-1]}, Cumulative Balance: {cumulative_balances[sorted_keys[-1]]} euros")
