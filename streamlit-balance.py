@@ -119,8 +119,6 @@ def main():
                 start_date = datetime(int(last_key[2]), int(last_key[1]), int(last_key[0]))
                 start_date_string = f"{int(last_key[0]):02d}/{int(last_key[1]):02d}/{int(last_key[2])}"
                 end_date = datetime(year, month, day)
-                st.write(start_date)
-                st.write(end_date)
                 
                 # Calculate the range of dates
                 date_range = [start_date + timedelta(days=i) for i in range((end_date - start_date).days + 1)]
