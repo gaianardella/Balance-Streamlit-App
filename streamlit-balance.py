@@ -171,7 +171,7 @@ def main():
         cumulative_balances[date] = cumulative_balance
 
     # Sort the keys of the dictionary
-    sorted_keys = sorted(st.cumulative_balances.keys())
+    sorted_keys = sorted(cumulative_balances.keys())
     st.write(f"Date: {sorted_keys[-1]}, Cumulative Balance: {cumulative_balances[sorted_keys[-1]]} euros")
     
     
