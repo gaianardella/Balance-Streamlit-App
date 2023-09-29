@@ -178,16 +178,29 @@ def main():
     if formatted_date in st.session_state:
         st.write(f"Date: {formatted_date}, Cumulative Balance: {cumulative_balances[formatted_date]} euros")
     else:
-        st.write("dhfhrhfdf")
-        st.write(cumulative_balances)
-        # storico = cumulative_balances[formatted_date]
-        # st.write(storico)
-        # st.write(type(storico))
-        # st.write(f"Date: {formatted_date}, Cumulative Balance: {cumulative_balances[formatted_date] + dailyBudget} euros")
-    
-    # Sort the keys of the dictionary
-    sorted_keys = sorted(cumulative_balances.keys())
-    st.write(f"Date: {sorted_keys[-1]}, Cumulative Balance: {cumulative_balances[sorted_keys[-1]]} euros")
+        # trovare ultima chiave in cumulative_balances, calcolare range con giorno attuale
+        # e fare cumulato + dailybudget x giorni in range (compreso giorno attuale) - 1 (giorno di partenza)
+        sorted_keys = sorted(cumulative_balances.keys())
+        last_key = sorted_keys[-1].split('/')
+        start_date = datetime(int(last_key[2]), int(last_key[1]), int(last_key[0]))
+        start_date_string = f"{int(last_key[0]):02d}/{int(last_key[1]):02d}/{int(last_key[2])}"
+        end_date = today_date
+        # Calculate the range of dates
+        date_range = [start_date + timedelta(days=i) for i in range((end_date - start_date).days + 1)]
+        # Convert the dates to strings in 'dd/mm/yyyy' format
+        date_strings = [date.strftime('%d/%m/%Y') for date in date_range]
+        contatore=0
+        for date_string in date_strings:
+            if date_string != start_date_string:
+                contatore+=dailyBudget
+        saldo_finale=cumulative_balances[start_date_string]+contatore
+        st.write(f"Date: {formatted_date}, Cumulative Balance: {saldo_finale} euros")
+        
+        
+       
+    # # Sort the keys of the dictionary
+    # sorted_keys = sorted(cumulative_balances.keys())
+    # st.write(f"Date: {sorted_keys[-1]}, Cumulative Balance: {cumulative_balances[sorted_keys[-1]]} euros")
     
     
     # # Print the dictionary of cumulative balances
