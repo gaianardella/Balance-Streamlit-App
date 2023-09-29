@@ -173,7 +173,7 @@ def main():
     #CALCOLARE DATA ODIERNA E RESTITUIRE CUMULATIVE BALANCE DI DATA ODIERNA + CAMBIARE COLORE
     # E EMOJI IN BASE A SOPRA O SOTTO BUDGET O NEUTRO
     today_date = datetime.now().date()
-    st.write(today_date)
+    st.write(type(today_date))
     # Format the date as "dd/mm/yyyy"
     formatted_date = today_date.strftime('%d/%m/%Y')
     # Print the formatted date
