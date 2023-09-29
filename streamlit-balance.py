@@ -179,7 +179,7 @@ def main():
         st.write(f"Date: {formatted_date}, Cumulative Balance: {cumulative_balances[formatted_date]} euros")
     else:
         st.write("dhfhrhfdf")
-        st.write(cumulative_balance)
+        st.write(cumulative_balances)
         # storico = cumulative_balances[formatted_date]
         # st.write(storico)
         # st.write(type(storico))
