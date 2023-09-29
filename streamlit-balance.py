@@ -178,6 +178,7 @@ def main():
     if formatted_date in st.session_state:
         st.write(f"Date: {formatted_date}, Cumulative Balance: {cumulative_balances[formatted_date]} euros")
     else:
+        st.write("dhfhrhfdf")
         st.write(cumulative_balance)
         # storico = cumulative_balances[formatted_date]
         # st.write(storico)
