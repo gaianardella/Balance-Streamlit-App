@@ -169,10 +169,15 @@ def main():
         
         # Store the cumulative balance for the current date in the dictionary
         cumulative_balances[date] = cumulative_balance
+
+    # Sort the keys of the dictionary
+    sorted_keys = sorted(st.cumulative_balances.keys())
+    st.write(f"Date: {sorted_keys[-1]}, Cumulative Balance: {cumulative_balances[sorted_keys[-1]]} euros")
     
-    # Print the dictionary of cumulative balances
-    for date, balance in cumulative_balances.items():
-        st.write(f"Date: {date}, Cumulative Balance: {balance} euros")
+    
+    # # Print the dictionary of cumulative balances
+    # for date, balance in cumulative_balances.items():
+    #     st.write(f"Date: {date}, Cumulative Balance: {balance} euros")
         
     ##############################################################
     
