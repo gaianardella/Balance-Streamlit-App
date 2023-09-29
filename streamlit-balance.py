@@ -172,6 +172,8 @@ def main():
 
     #CALCOLARE DATA ODIERNA E RESTITUIRE CUMULATIVE BALANCE DI DATA ODIERNA + CAMBIARE COLORE
     # E EMOJI IN BASE A SOPRA O SOTTO BUDGET O NEUTRO
+    today_date = datetime.now().date()
+    st.write(today_date)
     # Sort the keys of the dictionary
     sorted_keys = sorted(cumulative_balances.keys())
     st.write(f"Date: {sorted_keys[-1]}, Cumulative Balance: {cumulative_balances[sorted_keys[-1]]} euros")
