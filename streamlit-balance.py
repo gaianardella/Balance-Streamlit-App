@@ -174,6 +174,10 @@ def main():
     # E EMOJI IN BASE A SOPRA O SOTTO BUDGET O NEUTRO
     today_date = datetime.now().date()
     st.write(today_date)
+    # Format the date as "dd/mm/yyyy"
+    formatted_date = today_date.strftime('%d/%m/%Y')
+    # Print the formatted date
+    st.write(formatted_date)
     # Sort the keys of the dictionary
     sorted_keys = sorted(cumulative_balances.keys())
     st.write(f"Date: {sorted_keys[-1]}, Cumulative Balance: {cumulative_balances[sorted_keys[-1]]} euros")
