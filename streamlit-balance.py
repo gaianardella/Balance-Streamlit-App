@@ -124,7 +124,7 @@ def main():
         st.write(f"Date: {formatted_date}, Cumulative Balance: {saldo_finale} euros")
         
 
-    # st.write(st.session_state)
+    st.write(st.session_state)
     st.text("3. Visualizza spese")
     records = []
     row={}
