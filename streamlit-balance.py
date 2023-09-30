@@ -123,24 +123,20 @@ def main():
         saldo_finale=cumulative_balances[start_date_string]+contatore
         st.write(f"Date: {formatted_date}, Cumulative Balance: {saldo_finale} euros")
         
-        
-       
-    # # Sort the keys of the dictionary
-    # sorted_keys = sorted(cumulative_balances.keys())
-    # st.write(f"Date: {sorted_keys[-1]}, Cumulative Balance: {cumulative_balances[sorted_keys[-1]]} euros")
+  
+    st.text("3. Visualizza spese")
+    st.write(st.session_state)
+    st.write(type(st.session_state))
+#     records = []
+#     row={}
+#     row["Date"] = date
+#     = [(expense, category)
     
-    
-    # # Print the dictionary of cumulative balances
-    # for date, balance in cumulative_balances.items():
-    #     st.write(f"Date: {date}, Cumulative Balance: {balance} euros")
-        
-    ##############################################################
-    
-    # st.text("3. Visualizza spese")
-    # storico = budget_manager.print_expenses()
-    # st.write(storico)
-        # view table with expenses, filter, view graphs
-         # df = pd.DataFrame(1, columns=("spesa", "categoria", "descrizione"))
+#     {"Date": "2023-09-28", "Expense": 100.0, "Category": "Shopping"},
+#     {"Date": "2023-09-27", "Expense": 75.0, "Category": "Transportation"}
+# ]
+    # view table with expenses, filter, view graphs
+    # df = pd.DataFrame(1, columns=("spesa", "categoria", "descrizione"))
          # st.table(df)
 #         # print("4. Exit")
 #         choice = input("Enter your choice (1/2/3/4): ")
