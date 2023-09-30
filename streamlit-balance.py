@@ -3,53 +3,9 @@ import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
 
-# class BudgetManager:
-#     # set daily goal, expenses list and balance
-#     def __init__(self, dailyBudget):
-#         self.budget = dailyBudget
-#         self.expenses = []
-#         self.balance = dailyBudget
-
-#     def add_expense(self, amount, category):
-#         self.expenses.append((amount, category))
-#         # self.balance -= amount
-#         # print(f"Expense added: {category} (${amount}). New balance: ${self.balance}")
-
-#     def get_expenses(self):
-#         return self.expenses
-
-#     def print_balance(self, dailyBudget):
-#     #     print(f"Current balance: ${self.balance}")
-#         expenses_sum=0
-#         for el in self.expenses:
-#             expenses_sum += el[0]
-#         self.balance = dailyBudget - expenses_sum
-#         return self.balance
-    
-
-#     def print_expenses(self):
-#         if not self.expenses:
-#             print("No expenses recorded.")
-#         else:
-#             print("Expenses:")
-#             for amount, category in self.expenses:
-#                 print(f"- {category}: ${amount}")
-
-
 def main():
-           
-    # budget_amount = float(input("Enter your daily budget: "))
+    
     dailyBudget = 13.30
-    # budget_manager = BudgetManager(dailyBudget)
-    # Get the expenses from the BudgetManager instance
-    # expenses = budget_manager.get_expenses()
-
-    # expenses = []
-    # if 'expenses' not in st.session_state:
-    #     # Store the expenses in st.session_state
-    #     st.session_state['expenses'] = expenses
-    # else:
-    #     st.session_state['expenses'] += expenses
     
     st.text("1. Aggiungi spesa")
     expense = st.number_input('Inserisci spesa')
@@ -86,18 +42,9 @@ def main():
     if day is not None and month is not None and year is not None:
         date = f"{day:02d}/{month:02d}/{year}"
         st.write('Hai selezionato: {}'.format(date))
-    # date_string = f"{day:02d}{month:02d}{year}"
-    # # Convert the date string into a datetime object
-    # date_format = "%d%m%Y"
-    # date_datetime = datetime.strptime(date_string, date_format)
-
     
     if st.button('Aggiungi spesa'):
-        # if date_string not in st.session_state:
-            # Store the expenses in st.session_state
-            # st.session_state[date_string] = []
-        # else:
-        #     st.session_state[date_string].append((expense, category))
+        
         if len(st.session_state)==0:
             st.session_state[date] = [(expense, category)]
             
@@ -105,22 +52,14 @@ def main():
             if date in st.session_state:
                 st.session_state[date].append((expense, category))
             else:
-                # Sort the keys of the dictionary
-                sorted_keys = sorted(st.session_state.keys())
                 
-                # # Print the sorted keys
-                # for key in sorted_keys:
-                #     st.write(key)
-                # Example: The starting and ending dates
-                # last_key = list(st.session_state.keys())[-1].split('/')
+                sorted_keys = sorted(st.session_state.keys())
                 last_key = sorted_keys[-1].split('/')
-                # st.write("last_key: "+str(last_key))
-                    
+                
                 start_date = datetime(int(last_key[2]), int(last_key[1]), int(last_key[0]))
                 start_date_string = f"{int(last_key[0]):02d}/{int(last_key[1]):02d}/{int(last_key[2])}"
                 end_date = datetime(year, month, day)
                 
-                # Calculate the range of dates
                 date_range = [start_date + timedelta(days=i) for i in range((end_date - start_date).days + 1)]
                 # Convert the dates to strings in 'dd/mm/yyyy' format
                 date_strings = [date.strftime('%d/%m/%Y') for date in date_range]
@@ -131,26 +70,9 @@ def main():
                 for date_string in date_strings:
                     if date_string not in st.session_state:
                         st.session_state[date_string] = [[0]]
-                        
-        # st.write(st.session_state)
-                
-                # # Assuming you have st.session_state with the existing data
-                # # If not, you can initialize it as an empty dictionary: st.session_state = {}
-                
-                # # Check and add missing dates to st.session_state
-                # for date in date_range:
-                #     date_string = date.strftime('%d/%m/%Y')
-                #     if date_string not in st.session_state:
-                #         st.session_state[date_string] = [(0)]
-                
-                # # Print the updated st.session_state
-                # st.write(st.session_state)
 
     st.text("2. Visualizza stato")
-    # current_balance = budget_manager.balance
-    # current_balance = dailyBudget - expenses_sum
-    # st.write('Stato attuale: ', current_balance)
-
+    
     # Initialize a dictionary to store the cumulative balances for each day
     cumulative_balances = {}
     
@@ -159,8 +81,7 @@ def main():
     
     # Iterate through the keys (dates) in the session_state dictionary
     for date, expenses in st.session_state.items():
-        # st.write(date)
-        # st.write(expenses)
+        
         # Calculate the sum of expenses for the current date
         sum_of_expenses = sum(expense[0] for expense in expenses)
         
@@ -175,6 +96,7 @@ def main():
     today_date = datetime.now().date()
     # Format the date as "dd/mm/yyyy"
     formatted_date = today_date.strftime('%d/%m/%Y')
+    
     if formatted_date in st.session_state:
         st.write(f"Date: {formatted_date}, Cumulative Balance: {cumulative_balances[formatted_date]} euros")
     else:
@@ -185,14 +107,19 @@ def main():
         start_date = datetime(int(last_key[2]), int(last_key[1]), int(last_key[0]))
         start_date_string = f"{int(last_key[0]):02d}/{int(last_key[1]):02d}/{int(last_key[2])}"
         end_date = datetime.combine(today_date, datetime.min.time())
+        
         # Calculate the range of dates
         date_range = [start_date + timedelta(days=i) for i in range((end_date - start_date).days + 1)]
         # Convert the dates to strings in 'dd/mm/yyyy' format
-        date_strings = [date.strftime('%d/%m/%Y') for date in date_range]
+        # date_strings = [date.strftime('%d/%m/%Y') for date in date_range]
+        
         contatore=0
-        for date_string in date_strings:
+        # for date_string in date_strings:
+        for date in date_range:
+            date_string = date.strftime('%d/%m/%Y')
             if date_string != start_date_string:
                 contatore+=dailyBudget
+                
         saldo_finale=cumulative_balances[start_date_string]+contatore
         st.write(f"Date: {formatted_date}, Cumulative Balance: {saldo_finale} euros")
         
@@ -234,7 +161,3 @@ def main():
 if __name__ == '__main__':
     st.title("Budget :sun_with_face: :money_with_wings:")
     main()
-#     dailyBudget = 13.30
-# monthlyBudget = 400
-# expense = st.number_input('Inserisci spesa')
-# dailyBudget -= expense  
