@@ -127,10 +127,10 @@ def main():
     st.write(st.session_state)
     st.text("3. Visualizza spese")
     records = []
-    row={}
     for data in st.session_state:
         for elem in st.session_state[data]:
             if elem!=[0]:
+                row={}
                 row["Data"] = data
                 row["Spesa"] = round(elem[0],2)
                 row["Categoria"] = elem[1]
