@@ -123,8 +123,6 @@ def main():
         saldo_finale=cumulative_balances[start_date_string]+contatore
         st.write(f"Date: {formatted_date}, Cumulative Balance: {saldo_finale} euros")
         
-
-    st.write(st.session_state)
     st.text("3. Visualizza spese")
     records = []
     for data in st.session_state:
@@ -132,10 +130,12 @@ def main():
             if elem!=[0]:
                 row={}
                 row["Data"] = data
-                row["Spesa"] = round(elem[0],2)
+                number = elem[0]
+                formatted_number = f"{number:.2f}"
+                row["Spesa"] = formatted_number
                 row["Categoria"] = elem[1]
                 records.append(row)
-    st.write(records)            
+                
     # Create a DataFrame from the new records
     df = pd.DataFrame(records)
     st.table(df)
