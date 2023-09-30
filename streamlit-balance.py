@@ -132,7 +132,7 @@ def main():
         for elem in st.session_state[data]:
             if elem!=[0]:
                 row["Data"] = data
-                row["Spesa"] = elem[0]
+                row["Spesa"] = round(elem[0],2)
                 row["Categoria"] = elem[1]
                 records.append(row)
                 
