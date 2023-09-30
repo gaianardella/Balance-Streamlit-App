@@ -129,8 +129,9 @@ def main():
     records = []
     row={}
     for data in st.session_state:
-        for elem in data:
-            st.write(elem)
+        st.write(data)
+        # for elem in data:
+        #     st.write(elem)
     #         row["Data"] = data
     #         row["Spesa"] = elem[0]
     #         row["Categoria"] = elem[1]
