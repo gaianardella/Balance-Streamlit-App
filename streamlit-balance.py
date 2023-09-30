@@ -130,13 +130,12 @@ def main():
     row={}
     for data in st.session_state:
         for elem in st.session_state[data]:
-            if elem==[0]:
-                st.write(elem)
-    #         row["Data"] = data
-    #         row["Spesa"] = elem[0]
-    #         row["Categoria"] = elem[1]
-    #         records.append(row)
-    # st.write(records)
+            if elem!=[0]:
+            row["Data"] = data
+            row["Spesa"] = elem[0]
+            row["Categoria"] = elem[1]
+            records.append(row)
+    st.write(records)
     # view table with expenses, filter, view graphs
     # df = pd.DataFrame(1, columns=("spesa", "categoria", "descrizione"))
          # st.table(df)
