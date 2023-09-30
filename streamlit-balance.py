@@ -122,7 +122,12 @@ def main():
                 
         saldo_finale=cumulative_balances[start_date_string]+contatore
         
-        st.write(f"Date: {formatted_date}, Cumulative Balance: {saldo_finale} euros")
+        # st.write(f"Date: {formatted_date}, Cumulative Balance: {saldo_finale} euros")
+        if saldo_finale>=0:
+            st.success(f"Stai andando bene! Il tuo saldo è di {saldo_finale} euro", icon="✅")
+        else:
+            st.error(f"Stai andando male! Il tuo saldo è di {saldo_finale} euro", icon="🚨")
+            
         
     st.text("3. Visualizza spese")
     records = []
@@ -141,7 +146,6 @@ def main():
     df = pd.DataFrame(records)
     st.table(df)
 
-    st.balloons()
 if __name__ == '__main__':
     st.title("Budget :sun_with_face: :money_with_wings:")
     main()
