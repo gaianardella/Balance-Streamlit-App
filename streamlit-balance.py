@@ -148,4 +148,5 @@ def main():
 
 if __name__ == '__main__':
     st.title("Budget :sun_with_face: :money_with_wings:")
+    st.divider()
     main()
