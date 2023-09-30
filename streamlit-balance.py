@@ -130,7 +130,8 @@ def main():
     row={}
     for data in st.session_state:
         for elem in st.session_state[data]:
-            st.write(elem)
+            if elem==[0]:
+                st.write(elem)
     #         row["Data"] = data
     #         row["Spesa"] = elem[0]
     #         row["Categoria"] = elem[1]
