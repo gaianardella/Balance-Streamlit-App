@@ -71,15 +71,6 @@ def main():
                     if date_string not in st.session_state:
                         st.session_state[date_string] = [[0]]
 
-        st.text("3. Visualizza spese")
-        records = []
-        row={}
-        row["Data"] = date
-        row["Spesa"] = expense
-        row["Categoria"] = category
-        records.append(row)
-        st.write(records)
-
     st.text("2. Visualizza stato")
     
     # Initialize a dictionary to store the cumulative balances for each day
@@ -132,8 +123,17 @@ def main():
         saldo_finale=cumulative_balances[start_date_string]+contatore
         st.write(f"Date: {formatted_date}, Cumulative Balance: {saldo_finale} euros")
         
-  
+
+    st.write(st.session_state)
     
+    # st.text("3. Visualizza spese")
+    # records = []
+    # row={}
+    # row["Data"] = date
+    # row["Spesa"] = expense
+    # row["Categoria"] = category
+    # records.append(row)
+    # st.write(records)
     # view table with expenses, filter, view graphs
     # df = pd.DataFrame(1, columns=("spesa", "categoria", "descrizione"))
          # st.table(df)
