@@ -135,7 +135,7 @@ def main():
                 row["Spesa"] = round(elem[0],2)
                 row["Categoria"] = elem[1]
                 records.append(row)
-                
+    st.write(records)            
     # Create a DataFrame from the new records
     df = pd.DataFrame(records)
     st.table(df)
