@@ -125,16 +125,13 @@ def main():
         
   
     st.text("3. Visualizza spese")
-    st.write(st.session_state)
-    st.write(type(st.session_state))
-#     records = []
-#     row={}
-#     row["Date"] = date
-#     = [(expense, category)
-    
-#     {"Date": "2023-09-28", "Expense": 100.0, "Category": "Shopping"},
-#     {"Date": "2023-09-27", "Expense": 75.0, "Category": "Transportation"}
-# ]
+    records = []
+    row={}
+    row["Data"] = date
+    row["Spesa"] = expense
+    row["Categoria"] = category
+    records.append(row)
+    st.write(records)
     # view table with expenses, filter, view graphs
     # df = pd.DataFrame(1, columns=("spesa", "categoria", "descrizione"))
          # st.table(df)
