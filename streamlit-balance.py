@@ -121,6 +121,7 @@ def main():
                 contatore+=dailyBudget
                 
         saldo_finale=cumulative_balances[start_date_string]+contatore
+        
         st.write(f"Date: {formatted_date}, Cumulative Balance: {saldo_finale} euros")
         
     st.text("3. Visualizza spese")
@@ -139,25 +140,8 @@ def main():
     # Create a DataFrame from the new records
     df = pd.DataFrame(records)
     st.table(df)
-    # view table with expenses, filter, view graphs
-    # df = pd.DataFrame(1, columns=("spesa", "categoria", "descrizione"))
-         # st.table(df)
-#         # print("4. Exit")
-#         choice = input("Enter your choice (1/2/3/4): ")
 
-#         if choice == "1":
-#             amount = float(input("Enter the expense amount: "))
-#             description = input("Enter a description for the expense: ")
-#             budget_manager.add_expense(amount, description)
-#         elif choice == "2":
-#             budget_manager.print_balance()
-#         elif choice == "3":
-#             budget_manager.print_expenses()
-#         elif choice == "4":
-#             break
-#         else:
-#             print("Invalid choice. Please choose a valid option.")
-
+    st.balloons()
 if __name__ == '__main__':
     st.title("Budget :sun_with_face: :money_with_wings:")
     main()
