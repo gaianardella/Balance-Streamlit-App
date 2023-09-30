@@ -135,7 +135,10 @@ def main():
                 row["Spesa"] = elem[0]
                 row["Categoria"] = elem[1]
                 records.append(row)
-    st.write(records)
+                
+    # Create a DataFrame from the new records
+    df = pd.DataFrame(records)
+    st.table(df)
     # view table with expenses, filter, view graphs
     # df = pd.DataFrame(1, columns=("spesa", "categoria", "descrizione"))
          # st.table(df)
