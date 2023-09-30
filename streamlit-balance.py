@@ -124,16 +124,17 @@ def main():
         st.write(f"Date: {formatted_date}, Cumulative Balance: {saldo_finale} euros")
         
 
-    st.write(st.session_state)
-    
-    # st.text("3. Visualizza spese")
-    # records = []
-    # row={}
-    # row["Data"] = date
-    # row["Spesa"] = expense
-    # row["Categoria"] = category
-    # records.append(row)
-    # st.write(records)
+    # st.write(st.session_state)
+    st.text("3. Visualizza spese")
+    records = []
+    row={}
+    for data in st.session_state:
+        for elem in data:
+            row["Data"] = data
+            row["Spesa"] = elem[0]
+            row["Categoria"] = elem[1]
+            records.append(row)
+    st.write(records)
     # view table with expenses, filter, view graphs
     # df = pd.DataFrame(1, columns=("spesa", "categoria", "descrizione"))
          # st.table(df)
