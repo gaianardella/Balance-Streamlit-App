@@ -103,7 +103,8 @@ def main():
         # trovare ultima chiave in cumulative_balances, calcolare range con giorno attuale
         # e fare cumulato + dailybudget x giorni in range (compreso giorno attuale) - 1 (giorno di partenza)
         sorted_keys = sorted(cumulative_balances.keys())
-        last_key = sorted_keys[-1].split('/')
+        len(sorted_keys)!=0:
+            last_key = sorted_keys[-1].split('/')
         start_date = datetime(int(last_key[2]), int(last_key[1]), int(last_key[0]))
         start_date_string = f"{int(last_key[0]):02d}/{int(last_key[1]):02d}/{int(last_key[2])}"
         end_date = datetime.combine(today_date, datetime.min.time())
