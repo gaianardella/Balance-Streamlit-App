@@ -147,6 +147,8 @@ def main():
     df = pd.DataFrame(records)
     st.table(df)
 
+    st.write(st.session_state)
+
 if __name__ == '__main__':
     st.title("Budget :sun_with_face: :money_with_wings:")
     st.divider()
