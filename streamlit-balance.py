@@ -121,15 +121,13 @@ def main():
                 if date_string != start_date_string:
                     contatore+=dailyBudget
                 
-            st.write(cumulative_balances)
-            st.write(contatore)
             saldo_finale=cumulative_balances[start_date_string]+contatore
         
             # st.write(f"Date: {formatted_date}, Cumulative Balance: {saldo_finale} euros")
             if saldo_finale>=0:
-                st.success(f"Stai andando bene! Il tuo saldo è di {saldo_finale} euro", icon="✅")
+                st.success(f"Stai andando bene! Il tuo saldo ad oggi {formatted_date} è di {saldo_finale} euro", icon="✅")
             else:
-                st.error(f"Stai andando male! Il tuo saldo è di {saldo_finale} euro", icon="🚨")
+                st.error(f"Stai andando male! Il tuo saldo d oggi {formatted_date} è di {saldo_finale} euro", icon="🚨")
             
         
     st.text("3. Visualizza spese")
@@ -148,8 +146,6 @@ def main():
     # Create a DataFrame from the new records
     df = pd.DataFrame(records)
     st.table(df)
-
-    st.write(st.session_state)
 
 if __name__ == '__main__':
     st.title("Budget :sun_with_face: :money_with_wings:")
