@@ -121,6 +121,8 @@ def main():
                 if date_string != start_date_string:
                     contatore+=dailyBudget
                 
+            st.write(cumulative_balances)
+            st.write(contatore)
             saldo_finale=cumulative_balances[start_date_string]+contatore
         
             # st.write(f"Date: {formatted_date}, Cumulative Balance: {saldo_finale} euros")
