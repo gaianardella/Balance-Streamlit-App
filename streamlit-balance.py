@@ -105,29 +105,29 @@ def main():
         sorted_keys = sorted(cumulative_balances.keys())
         if len(sorted_keys)!=0:
             last_key = sorted_keys[-1].split('/')
-        start_date = datetime(int(last_key[2]), int(last_key[1]), int(last_key[0]))
-        start_date_string = f"{int(last_key[0]):02d}/{int(last_key[1]):02d}/{int(last_key[2])}"
-        end_date = datetime.combine(today_date, datetime.min.time())
-        
-        # Calculate the range of dates
-        date_range = [start_date + timedelta(days=i) for i in range((end_date - start_date).days + 1)]
-        # Convert the dates to strings in 'dd/mm/yyyy' format
-        # date_strings = [date.strftime('%d/%m/%Y') for date in date_range]
-        
-        contatore=0
-        # for date_string in date_strings:
-        for date in date_range:
-            date_string = date.strftime('%d/%m/%Y')
-            if date_string != start_date_string:
-                contatore+=dailyBudget
+            start_date = datetime(int(last_key[2]), int(last_key[1]), int(last_key[0]))
+            start_date_string = f"{int(last_key[0]):02d}/{int(last_key[1]):02d}/{int(last_key[2])}"
+            end_date = datetime.combine(today_date, datetime.min.time())
+            
+            # Calculate the range of dates
+            date_range = [start_date + timedelta(days=i) for i in range((end_date - start_date).days + 1)]
+            # Convert the dates to strings in 'dd/mm/yyyy' format
+            # date_strings = [date.strftime('%d/%m/%Y') for date in date_range]
+            
+            contatore=0
+            # for date_string in date_strings:
+            for date in date_range:
+                date_string = date.strftime('%d/%m/%Y')
+                if date_string != start_date_string:
+                    contatore+=dailyBudget
                 
-        saldo_finale=cumulative_balances[start_date_string]+contatore
+            saldo_finale=cumulative_balances[start_date_string]+contatore
         
-        # st.write(f"Date: {formatted_date}, Cumulative Balance: {saldo_finale} euros")
-        if saldo_finale>=0:
-            st.success(f"Stai andando bene! Il tuo saldo è di {saldo_finale} euro", icon="✅")
-        else:
-            st.error(f"Stai andando male! Il tuo saldo è di {saldo_finale} euro", icon="🚨")
+            # st.write(f"Date: {formatted_date}, Cumulative Balance: {saldo_finale} euros")
+            if saldo_finale>=0:
+                st.success(f"Stai andando bene! Il tuo saldo è di {saldo_finale} euro", icon="✅")
+            else:
+                st.error(f"Stai andando male! Il tuo saldo è di {saldo_finale} euro", icon="🚨")
             
         
     st.text("3. Visualizza spese")
